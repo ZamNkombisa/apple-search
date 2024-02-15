@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm renders correctly 1`] = `
+<div>
+  <form
+    id="form"
+  >
+    <input
+      placeholder="Search term"
+      type="text"
+      value=""
+    />
+    <select>
+      <option
+        value="all"
+      >
+        All
+      </option>
+      <option
+        value="music"
+      >
+        Music
+      </option>
+      <option
+        value="movie"
+      >
+        Movie
+      </option>
+      <option
+        value="podcast"
+      >
+        Podcast
+      </option>
+      <option
+        value="books"
+      >
+        Books
+      </option>
+    </select>
+    <button
+      type="submit"
+    >
+      Search
+    </button>
+  </form>
+</div>
+`;

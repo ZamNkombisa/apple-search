@@ -33,10 +33,7 @@ This is a full-stack web application that allows users to search for content wit
 
 1. Run `npm test` to execute tests.
 
-## Contributing
-
-Contributions are welcome! Please submit bug fixes, feature requests, or code improvements via pull requests.
-
 ## Deployment
 
-The application is deployed at [example.com](https://example.com).
+I could not deploy the application due to Heroku being payed for, I have tried Render.com and failed multiple times.
+Any deployment suggestions would be highly appreciated.

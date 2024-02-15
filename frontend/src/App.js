@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import SearchForm from "./components/SearchForm";
-import SearchResults from "./components/SearchResults";
-import Favorites from "./components/Favorites";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SearchForm from "./components/SearchForm.js";
+import SearchResults from "./components/SearchResults.js";
+import Favorites from "./components/Favorites.js";
+import Header from "./components/Header.js";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 const App = () => {
@@ -34,21 +37,47 @@ const App = () => {
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
+  // Function to clear only search results
+  const clearSearchResults = () => {
+    setSearchResults([]);
+  };
+
   return (
-    <div>
-      {/* Main heading */}
-      <h1>iTunes Search App</h1>
-      {/* Search form component */}
-      <SearchForm setSearchResults={setSearchResults} />
-      {/* Search results component */}
-      <SearchResults results={searchResults} addToFavorites={addToFavorites} />
-      {/* Favorites component */}
-      <Favorites
-        favorites={favorites}
-        addToFavorites={addToFavorites}
-        removeFromFavorites={removeFromFavorites}
-      />
-    </div>
+    <Router>
+      <div>
+        {/* Header with clearSearchResults prop */}
+        <Header clearSearchResults={clearSearchResults} />
+
+        {/* Main content */}
+        <div className="main-content">
+          {/* Search form component */}
+          <SearchForm setSearchResults={setSearchResults} />
+
+          {/* Routes */}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <SearchResults
+                  results={searchResults}
+                  addToFavorites={addToFavorites}
+                />
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <Favorites
+                  favorites={favorites}
+                  addToFavorites={addToFavorites}
+                  removeFromFavorites={removeFromFavorites}
+                />
+              }
+            />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 };
 

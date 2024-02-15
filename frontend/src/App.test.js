@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders App component correctly", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  // Example: Test if a specific text is present in the rendered component
+  const headingElement = screen.getByText(/iTunes Search App/i);
+  expect(headingElement).toBeInTheDocument();
 });

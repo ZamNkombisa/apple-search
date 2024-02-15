@@ -1,18 +1,28 @@
-/* Basic and easy to understand styling for my application */
-body {
+/* General Styles */
+body { /* Reset body styles */
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #cacaca;
 }
 
-.container {
+/* Container Styles */
+.container { /* Styles for the main content container */
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
 
-h1 {
+/* Navbar Styles */
+.navbar { /* Styles for the navigation bar */
+  background: #cacaca;
+  padding: 10px;
+  align-items: end;
+  text-align: end;
+}
+
+/* Heading Styles */
+h1 { /* Styles for primary heading */
   color: #333;
   margin: 10px;
   margin-bottom: 50px;
@@ -20,29 +30,31 @@ h1 {
   text-align: center;
 }
 
-h2 {
+h2 { /* Styles for secondary heading */
   margin: 20px;
   margin-bottom: 20px;
 }
 
-form {
+/* Form Styles */
+form { /* Styles for forms */
   margin: 10px;
   align-items: center;
 }
 
-input[type="text"] {
+input[type="text"] { /* Styles for text input */
   padding: 10px;
   width: 60%;
   margin-right: 10px;
   border-radius: 8px;
 }
 
-select {
+select { /* Styles for select input */
   padding: 10px;
   border-radius: 8px;
 }
 
-button {
+/* Button Styles */
+button { /* Styles for buttons */
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
@@ -52,17 +64,18 @@ button {
   border-radius: 8px;
 }
 
-button:hover {
+button:hover { /* Hover styles for buttons */
   background-color: #0056b3;
 }
 
-ul {
+/* List Styles */
+ul { /* Styles for unordered lists */
   list-style: none;
   padding: 0;
   margin: 10px;
 }
 
-li {
+li { /* Styles for list items */
   margin: 10px;
   background-color: #fff;
   padding: 10px;
@@ -70,7 +83,8 @@ li {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.favorites {
+/* Favorites Container Styles */
+.favorites { /* Styles for the favorites container */
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;

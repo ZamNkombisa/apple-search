@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "axios"; // Import axios instead of requiring it
 
 const SearchForm = ({ setSearchResults }) => {
   // State variables for search term and media type
@@ -27,7 +27,9 @@ const SearchForm = ({ setSearchResults }) => {
   return (
     <form id="form" onSubmit={handleSubmit}>
       {/* Input field for search term */}
+      <label htmlFor="searchInput">Search:</label>
       <input
+        id="searchInput"
         type="text"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
