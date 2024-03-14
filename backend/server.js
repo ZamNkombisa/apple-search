@@ -2,12 +2,16 @@
 const express = require("express");
 const axios = require("axios");
 const helmet = require("helmet");
+const cors = require("cors");
 
 // Create Express application
 const app = express();
 
 // Use Helmet middleware for security headers
 app.use(helmet());
+
+// Use CORS middleware to enable CORS
+app.use(cors());
 
 // Parse JSON request bodies
 app.use(express.json());

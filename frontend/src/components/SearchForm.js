@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import axios instead of requiring it
+import axios from "axios";
 
 const SearchForm = ({ setSearchResults }) => {
   // State variables for search term and media type
@@ -10,15 +10,15 @@ const SearchForm = ({ setSearchResults }) => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
     try {
-      // Send GET request to iTunes Search API
-      const response = await axios.get("https://itunes.apple.com/search", {
+      // Send GET request to backend server
+      const response = await axios.get("http://localhost:5000/search", {
         params: {
-          term: searchTerm,
-          media: mediaType,
+          term: searchTerm, // Search term from input field
+          media: mediaType, // Media type selected from dropdown menu
         },
       });
-      // Update search results state with the response data
-      setSearchResults(response.data.results);
+      console.log(response.data); // Log response data to console
+      setSearchResults(response.data.results); // Update search results state with the response data
     } catch (error) {
       console.error(error); // Log any errors to the console
     }
@@ -32,7 +32,7 @@ const SearchForm = ({ setSearchResults }) => {
         id="searchInput"
         type="text"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => setSearchTerm(e.target.value)} // Update search term state as user types
         placeholder="Search term"
       />
       {/* Dropdown menu for media type */}
@@ -41,7 +41,8 @@ const SearchForm = ({ setSearchResults }) => {
         <option value="music">Music</option>
         <option value="movie">Movie</option>
         <option value="podcast">Podcast</option>
-        <option value="books">Books</option>
+        <option value="ebook">Books</option>
+        <option value="audiobook">Audio Books</option>
       </select>
       {/* Submit button */}
       <button type="submit">Search</button>
