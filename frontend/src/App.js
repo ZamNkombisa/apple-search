@@ -25,6 +25,10 @@ const App = () => {
     setFavorites([...favorites, item]);
     // Update localStorage
     localStorage.setItem("favorites", JSON.stringify([...favorites, item]));
+    // Show alert notification
+    alert(`Added '${item.trackName}' to favorites!`);
+    // Redirect to favorites page
+    window.location.href = "/favorites";
   };
 
   // Function to remove an item from favorites
