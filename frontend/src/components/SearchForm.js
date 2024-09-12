@@ -11,7 +11,7 @@ const SearchForm = ({ setSearchResults }) => {
     e.preventDefault(); // Prevent default form submission behavior
     try {
       // Send GET request to backend server
-      const response = await axios.get("http://localhost:5000/search", {
+      const response = await axios.get("https://apple-search-server.onrender.com/search", {
         params: {
           term: searchTerm, // Search term from input field
           media: mediaType, // Media type selected from dropdown menu
