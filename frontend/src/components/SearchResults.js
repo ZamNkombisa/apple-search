@@ -1,6 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const SearchResults = ({ results, addToFavorites }) => {
+  const navigate = useNavigate(); // Initialize navigate
+
+  // Handler to add a track to favorites and navigate to the favorites page
+  const handleAddToFavorites = (item) => {
+    addToFavorites(item);
+    navigate("/favorites"); // Navigate to favorites page after adding
+  };
+
   return (
     <div>
       {/* Heading for search results section */}
@@ -25,7 +34,7 @@ const SearchResults = ({ results, addToFavorites }) => {
             <small>Release Date: {formatReleaseDate(item.releaseDate)}</small>
             <br />
             {/* Button to add the track to favorites */}
-            <button onClick={() => addToFavorites(item)}>
+            <button onClick={() => handleAddToFavorites(item)}>
               Add to Favorites
             </button>
           </li>
