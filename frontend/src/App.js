@@ -28,7 +28,7 @@ const App = () => {
     // Show alert notification
     alert(`Added '${item.trackName}' to favorites!`);
     // Redirect to favorites page
-    window.location.href = "/favorites";
+    window.location.href = "https://apple-search.onrender.com/favorites";
   };
 
   // Function to remove an item from favorites
