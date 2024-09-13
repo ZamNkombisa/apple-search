@@ -11,7 +11,6 @@ const App = () => {
   // State variables to store search results and favorites
   const [searchResults, setSearchResults] = useState([]);
   const [favorites, setFavorites] = useState([]);
-
   // useNavigate hook for programmatic navigation
   const navigate = useNavigate();
 
@@ -30,7 +29,7 @@ const App = () => {
     localStorage.setItem("favorites", JSON.stringify([...favorites, item]));
     // Show alert notification
     alert(`Added '${item.trackName}' to favorites!`);
-    // Redirect to favorites page using navigate
+    // Redirect to favorites page
     navigate("/favorites");
   };
 
@@ -50,41 +49,42 @@ const App = () => {
   };
 
   return (
-    <div>
-      {/* Header with clearSearchResults prop */}
-      <Header clearSearchResults={clearSearchResults} />
+    <Router>
+      <div>
+        {/* Header with clearSearchResults prop */}
+        <Header clearSearchResults={clearSearchResults} />
 
-      {/* Main content */}
-      <div className="main-content">
-        {/* Search form component */}
-        <SearchForm setSearchResults={setSearchResults} />
+        {/* Main content */}
+        <div className="main-content">
+          {/* Search form component */}
+          <SearchForm setSearchResults={setSearchResults} />
 
-        {/* Routes */}
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <SearchResults
-                results={searchResults}
-                addToFavorites={addToFavorites}
-              />
-            }
-          />
-          <Route
-            path="/favorites"
-            element={
-              <Favorites
-                favorites={favorites}
-                addToFavorites={addToFavorites}
-                removeFromFavorites={removeFromFavorites}
-              />
-            }
-          />
-        </Routes>
+          {/* Routes */}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <SearchResults
+                  results={searchResults}
+                  addToFavorites={addToFavorites}
+                />
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <Favorites
+                  favorites={favorites}
+                  addToFavorites={addToFavorites}
+                  removeFromFavorites={removeFromFavorites}
+                />
+              }
+            />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 };
 
 export default App;
-
